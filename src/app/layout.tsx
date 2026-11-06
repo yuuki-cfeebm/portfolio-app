@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/header/Header";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           defaultTheme="light"
           enableSystem
         >
+          <ScrollProgress className="z-[60] h-0.5 bg-primary bg-none" />
           <Header />
           {children}
           <Footer />
