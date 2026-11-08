@@ -35,10 +35,16 @@ export default async function ProjectPage({
   const project = projects[index];
   const next = projects[(index + 1) % projects.length];
   const gallery = project.images.slice(1);
-  const links = [
-    { label: "Ver site", href: project.live },
-    { label: "Ver código", href: project.repo },
-  ].filter((link) => link.href);
+  const repoLinks =
+    typeof project.repo === "object"
+      ? [
+          { label: "Código front-end", href: project.repo.front },
+          { label: "Código back-end", href: project.repo.back },
+        ]
+      : [{ label: "Ver código", href: project.repo }];
+  const links = [{ label: "Ver site", href: project.live }, ...repoLinks].filter(
+    (link) => link.href,
+  );
 
   return (
     <main className="flex-1">

@@ -110,7 +110,9 @@ export type Project = {
   // é um fundo roxo com o número do projeto.
   images: { src: string; alt: string }[];
   // Links opcionais, mostrados como botões na página do projeto.
-  repo?: string;
+  // Um repositório só: repo: "https://..."
+  // Front e back separados: repo: { front: "https://...", back: "https://..." }
+  repo?: string | { front?: string; back?: string };
   live?: string;
 };
 
@@ -122,13 +124,18 @@ export const projects: Project[] = [
     category: "Web",
     description: "Projeto acadêmico que melhorou o processo de monitoria da Fatec Zona Leste, desde a inscrição, acompanhamento e controle dos monitores até o agendamentos de monitoria entre alunos e monitores. Além de acabar com processos manuais, repetitivos e burocráticos.",
     tags: ["React", "Tailwind CSS", "MongoDB", "Java"],
+    repo: "https://github.com/Monitoria-FATEC/monitoria-app-react",
     developed: [
       "Inscrição de monitores",
       "Acompanhamento e controle dos monitores",
       "Agendamento de monitorias entre alunos e monitores",
     ],
-    images: [],
-    repo: ""
+    images: [
+      {
+        src: "",
+        alt: ""
+      }
+    ],
   },
   {
     slug: "finance-tracker",
@@ -136,8 +143,22 @@ export const projects: Project[] = [
     category: "Web",
     description: "Projeto pessoal para organização e controle financeiro.",
     tags: ["Next.js", "Tailwind CSS"],
+    repo: "https://github.com/yuuki-cfeebm/FinanceTracker",
     developed: [],
     images: [],
+  },
+  {
+    slug: "gerenciamento-de-clientes",
+    title: "Gerenciamento de Clientes",
+    category: "API",
+    description: "Projeto pessoal que utiliza uma API REST para o CRUD de clientes, com o objetivo de obter um conhecimento mais sólido em API REST.",
+    tags: ["React", "CSS", "Java"],
+    developed: ["Cadastro, listagem, edição e exclusão de clientes (CRUD)"],
+    images: [],
+    repo: {
+      front: "",
+      back: "",
+    },
   },
   {
     slug: "dog-api",
@@ -147,16 +168,7 @@ export const projects: Project[] = [
     tags: ["Node.js", "React", "TypeScript", "Tailwind CSS"],
     developed: [],
     images: [],
-  },
-  {
-    slug: "evento-e-sabor",
-    title: "Plataforma Evento & Sabor",
-    category: "Web",
-    description: "Projeto Acadêmico que melhorou o processo de realização e organização de pedidos. Desenvolvido para um cliente que prestava serviços de buffet.",
-    tags: ["HTML", "CSS", "JavaScript"],
-    developed: ["Realização e organização de pedidos"],
-    images: [],
-  },
+  }
 ];
 
 // TODO: troque pela sua trajetória real
