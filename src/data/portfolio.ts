@@ -36,7 +36,7 @@ export const skills = [
   },
   {
     title: "Ferramentas",
-    items: ["Git", "Insomnia", "Figma", "Canva", "Notion", "Monday"],
+    items: ["Git", "Insomnia", "Figma", "Monday"],
   },
 ];
 
@@ -45,23 +45,22 @@ export const stack = skills.flatMap((group) => group.items);
 // Ícones da faixa roxa do início. Salve os arquivos em public/images/tech/ e
 // preencha o caminho, por exemplo HTML: "/images/tech/html.svg".
 // Enquanto estiver vazio, a faixa mostra o nome da tecnologia.
+const pathIcons = "/images/tech"
 export const techIcons: Record<string, string> = {
-  HTML: "",
-  CSS: "",
-  JavaScript: "",
-  TypeScript: "",
-  React: "",
-  "Next.js": "",
-  "Tailwind CSS": "",
-  "Node.js": "",
-  Java: "",
-  MongoDB: "",
-  Git: "",
-  Insomnia: "",
-  Figma: "",
-  Canva: "",
-  Notion: "",
-  Monday: "",
+  HTML: `${pathIcons}/html.png`,
+  CSS: `${pathIcons}/css-3.png`,
+  JavaScript: `${pathIcons}/js.png`,
+  TypeScript: `${pathIcons}/typescript.png`,
+  React: `${pathIcons}/react.png`,
+  "Next.js": `${pathIcons}/next.png`,
+  "Tailwind CSS": `${pathIcons}/tailwind.svg`,
+  "Node.js": `${pathIcons}/node.png`,
+  Java: `${pathIcons}/java.webp`,
+  MongoDB: `${pathIcons}/mongodb.png`,
+  Git: `${pathIcons}/github.png`,
+  Insomnia: `${pathIcons}/insomnia.png`,
+  Figma: `${pathIcons}/figma.png`,
+  Monday: `${pathIcons}/monday.svg`,
 };
 
 export const services = [
@@ -117,6 +116,7 @@ export type Project = {
 };
 
 // TODO: complete "developed", "images", "repo" e "live" de cada projeto
+const initialPath = "/images/projetos"
 export const projects: Project[] = [
   {
     slug: "monitoria-academica",
@@ -132,8 +132,24 @@ export const projects: Project[] = [
     ],
     images: [
       {
-        src: "",
-        alt: ""
+        src: `${initialPath}/monitoria-academica/home.png`,
+        alt: "Página inicial do primeiro projeto"
+      },
+      {
+        src: `${initialPath}/monitoria-academica/supervisorHome.png`,
+        alt: "Página do Supervisor (dashboard)"
+      },
+      {
+        src: `${initialPath}/monitoria-academica/aprovarForms.png`,
+        alt: "Seção de Aprovar Formulários"
+      },
+      {
+        src: `${initialPath}/monitoria-academica/detalhesForms.png`,
+        alt: "Detalhes dos formulários"
+      },
+      {
+        src: `${initialPath}/monitoria-academica/listaMonitores.png`,
+        alt: "Seção dos Monitores"
       }
     ],
   },
@@ -173,13 +189,13 @@ export const projects: Project[] = [
 
 // TODO: troque pela sua trajetória real
 export const experience = [
-  {
-    role: "Em busca de estágio",
-    company: "Desenvolvimento de software",
-    period: "Agora",
-    description:
-      "Procurando um estágio na área para seguir evoluindo e contribuir com um time. Se a sua empresa tem uma vaga, vamos conversar!",
-  },
+  // {
+  //   role: "Em busca de estágio",
+  //   company: "Desenvolvimento de software",
+  //   period: "Agora",
+  //   description:
+  //     "Procurando um estágio na área para seguir evoluindo e contribuir com um time. Se a sua empresa tem uma vaga, vamos conversar!",
+  // },
   {
     role: "Estágio em Desenvolvimento",
     company: "Serie A",

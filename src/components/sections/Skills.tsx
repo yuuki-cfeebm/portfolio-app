@@ -20,7 +20,7 @@ export default function Skills() {
               title={item}
               width={40}
               height={40}
-              className="size-9 object-contain brightness-0 invert md:size-10 dark:invert-0"
+              className="size-9 object-contain md:size-10 "
             />
           ) : (
             <span

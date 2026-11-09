@@ -100,7 +100,7 @@ export default async function ProjectPage({
         </header>
 
         <BlurFade delay={0.35} offset={30} direction="up">
-          <div className="relative mt-12 aspect-[16/10] overflow-hidden rounded-3xl">
+          <div className="relative mt-12 aspect-[16/10] overflow-hidden rounded-3xl rounded-3xl border border-border p-2">
             <ProjectCover
               project={project}
               sizes="(max-width: 1024px) 100vw, 976px"
