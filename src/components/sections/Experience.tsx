@@ -65,12 +65,20 @@ export default function Experience() {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <p className="max-w-2xl pb-6 text-muted-foreground">
+                      <div className="max-w-2xl pb-6 text-muted-foreground">
                         <span className="mb-1 block text-sm tabular-nums md:hidden">
                           {item.period}
                         </span>
-                        {item.description}
-                      </p>
+                        <span className="mb-2">{item.intro}</span>
+                        <ul className="flex flex-col gap-4 mt-2">
+                          {item.content?.map((li) => (
+                            <li className="text-white" key={li.title}>
+                              <span className="font-semibold text-muted-foreground">{li.title} </span>
+                              {li.description}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
