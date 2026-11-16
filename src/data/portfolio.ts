@@ -110,9 +110,10 @@ export const projects: Project[] = [
     tags: ["React", "Tailwind CSS", "MongoDB", "Java"],
     repo: "https://github.com/Monitoria-FATEC/monitoria-app-react",
     developed: [
-      "Inscrição de monitores",
-      "Acompanhamento e controle dos monitores",
-      "Agendamento de monitorias entre alunos e monitores",
+      "Dashboard do Supervisor (home)",
+      "Controle de Monitores (CRUD)",
+      "Visualização e edição de formulários",
+      "Controle de informações de contas bancárias"
     ],
     images: [
       {

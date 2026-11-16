@@ -18,8 +18,13 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Kauã | Desenvolvedor FullStack",
-  description: "Portfólio de Kauã, desenvolvedor FullStack.",
+  title: "Kauã Yanase | Portfólio",
+  description: "Desenvolvedor Full Stack",
+  icons: {
+    icon: "/images/logo.png",
+    shortcut: "/images/logo.png",
+    apple: "/images/logo.png",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
