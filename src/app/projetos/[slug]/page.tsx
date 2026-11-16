@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import ProjectCover from "@/components/ProjectCover";
+import { LightboxImage, LightboxProvider } from "@/components/ImageLightbox";
 import TypedText from "@/components/TypedText";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { profile, projects } from "@/data/portfolio";
@@ -44,7 +44,7 @@ async function ProjectContent({
 
   const project = projects[index];
   const next = projects[(index + 1) % projects.length];
-  const gallery = project.images.slice(1);
+  const [cover, ...gallery] = project.images;
   const repoLinks =
     typeof project.repo === "object"
       ? [
@@ -58,6 +58,7 @@ async function ProjectContent({
 
   return (
     <main className="flex-1">
+      <LightboxProvider images={project.images}>
       <article className="mx-auto max-w-5xl px-6 pb-24 pt-32 md:pt-40">
         <Link
           href="/#projetos"
@@ -68,7 +69,7 @@ async function ProjectContent({
         </Link>
 
         <header className="mt-8">
-          <p className="text-sm font-medium text-primary">{project.category}</p>
+          <p className="text-sm font-medium text-primary">{project.stack}</p>
           <TypedText
             as="h1"
             text={project.title}
@@ -111,11 +112,22 @@ async function ProjectContent({
 
         <BlurFade delay={0.35} offset={30} direction="up">
           <div className="relative mt-12 aspect-[16/10] overflow-hidden rounded-3xl rounded-3xl border border-border p-2">
-            <ProjectCover
-              project={project}
-              sizes="(max-width: 1024px) 100vw, 976px"
-              preload
-            />
+            {cover ? (
+              <div className="relative h-full w-full overflow-hidden rounded-2xl">
+                <LightboxImage
+                  image={cover}
+                  index={0}
+                  sizes="(max-width: 1024px) 100vw, 976px"
+                  preload
+                />
+              </div>
+            ) : (
+              <ProjectCover
+                project={project}
+                sizes="(max-width: 1024px) 100vw, 976px"
+                preload
+              />
+            )}
           </div>
         </BlurFade>
 
@@ -152,15 +164,13 @@ async function ProjectContent({
               className="font-serif text-4xl italic tracking-tight md:text-5xl"
             />
             <div className="mt-6 grid gap-6 md:grid-cols-2">
-              {gallery.map((image) => (
+              {gallery.map((image, position) => (
                 <BlurFade key={image.src} inView offset={24} direction="up">
                   <div className="relative aspect-[16/10] overflow-hidden rounded-3xl border border-border">
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      fill
+                    <LightboxImage
+                      image={image}
+                      index={position + 1}
                       sizes="(max-width: 768px) 100vw, 480px"
-                      className="object-cover"
                     />
                   </div>
                 </BlurFade>
@@ -184,6 +194,7 @@ async function ProjectContent({
           <ArrowRight className="size-6 shrink-0 text-primary transition-transform group-hover:translate-x-1" />
         </Link>
       </article>
+      </LightboxProvider>
     </main>
   );
 }
