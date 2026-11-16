@@ -7,7 +7,6 @@ import SectionTitle from "@/components/SectionTitle";
 import { NumberTicker } from "@/components/ui/number-ticker";
 import { experience, stats } from "@/data/portfolio";
 
-// A classe "dark" mantém esta faixa escura nos dois temas.
 export default function Experience() {
   const [open, setOpen] = useState<number | null>(0);
 
@@ -34,13 +33,13 @@ export default function Experience() {
                     aria-expanded={isOpen}
                     aria-controls={`experiencia-${index}`}
                     onClick={() => setOpen(isOpen ? null : index)}
-                    className="flex w-full items-center justify-between gap-6 py-6 text-left"
+                    className="flex w-full items-center justify-between gap-6 py-6 text-left cursor-pointer"
                   >
                     <span className="flex flex-col gap-1 md:flex-row md:items-baseline md:gap-6">
                       <span className="text-2xl font-medium tracking-tight md:text-3xl">
                         {item.role}
                       </span>
-                      <span className="text-muted-foreground">
+                      <span className="text-primary">
                         {item.company}
                       </span>
                     </span>
@@ -73,8 +72,8 @@ export default function Experience() {
                         <ul className="flex flex-col gap-4 mt-2">
                           {item.content?.map((li) => (
                             <li className="text-white" key={li.title}>
-                              <span className="font-semibold text-muted-foreground">{li.title} </span>
-                              {li.description}
+                              <span className="font-semibold text-foreground">{li.title} </span>
+                              <span className="text-muted-foreground">{li.description}</span>
                             </li>
                           ))}
                         </ul>
