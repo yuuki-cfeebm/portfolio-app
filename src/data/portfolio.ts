@@ -90,7 +90,7 @@ export const techIcons: Record<string, string> = {
 export type Project = {
   slug: string;
   title: string;
-  category: string;
+  stack: "Front-End" | "Full-Stack";
   description: string;
   tags: string[];
   developed: string[];
@@ -105,10 +105,13 @@ export const projects: Project[] = [
   {
     slug: "monitoria-academica",
     title: "Monitoria Acadêmica",
-    category: "Web",
+    stack: "Full-Stack",
     description: "Projeto acadêmico que melhorou o processo de monitoria da Fatec Zona Leste, desde a inscrição, acompanhamento e controle dos monitores até o agendamentos de monitoria entre alunos e monitores. Além de acabar com processos manuais, repetitivos e burocráticos.",
     tags: ["React", "Tailwind CSS", "MongoDB", "Java"],
-    repo: "https://github.com/Monitoria-FATEC/monitoria-app-react",
+    repo: {
+      front: "https://github.com/Monitoria-FATEC/monitoria-app-react",
+      back: "https://github.com/Monitoria-FATEC/monitoria-backend"
+    },
     developed: [
       "Dashboard do Supervisor (home)",
       "Controle de Monitores (CRUD)",
@@ -118,7 +121,7 @@ export const projects: Project[] = [
     images: [
       {
         src: `${initialPath}/monitoria-academica/home.png`,
-        alt: "Página inicial do primeiro projeto"
+        alt: "Página inicial do projeto"
       },
       {
         src: `${initialPath}/monitoria-academica/supervisorHome.png`,
@@ -141,34 +144,95 @@ export const projects: Project[] = [
   {
     slug: "finance-tracker",
     title: "Finance Tracker",
-    category: "Web",
-    description: "Projeto pessoal para organização e controle financeiro.",
-    tags: ["Next.js", "Tailwind CSS"],
-    repo: "https://github.com/yuuki-cfeebm/FinanceTracker",
-    developed: [],
-    images: [],
+    stack: "Full-Stack",
+    description: "Projeto pessoal voltado para a organização e controle financeiro do usuário. Permite o registro de transações (entrada e saída), com categorização, visuzalição em gráficos, além de leitura de comprovante de pagamento com IA, com o objetivo de otimizar e facilitar o controle financeiro",
+    tags: ["Next.js", "Typescript", "Node.js", "Gemini API", "Tailwind CSS"],
+    repo: {
+      front: "https://github.com/yuuki-cfeebm/FinanceTracker",
+      back: "https://github.com/yuuki-cfeebm/FinanceTracker",
+    },
+    developed: [
+      "Página Inicial que mostra um resumo de todas as informações",
+      "Página de registro de Transação",
+      "Extração de dados de comprovantes de pagamentos com API do Gemini",
+      "Histórico de todas as transações registradas",
+      "Filtros por categoria ou data e ordenação",
+      "Página de Dashboard que mostra informações adicionais e gráficos dinâmicos sobre as transações"
+    ],
+    images: [
+      {
+        src: `${initialPath}/finance-tracker/home.png`,
+        alt: "Página inicial do projeto"
+      },
+      {
+        src: `${initialPath}/finance-tracker/registrar.png`,
+        alt: "Página para registrar transações (entrada ou saída)"
+      },
+      {
+        src: `${initialPath}/finance-tracker/historico.png`,
+        alt: "Página que mostra histórico de registros"
+      },
+      {
+        src: `${initialPath}/finance-tracker/graficos.png`,
+        alt: "Dashboard com as transações registradas"
+      },
+      {
+        src: `${initialPath}/finance-tracker/graficos2.png`,
+        alt: "Continuação da dashboard"
+      },
+    ],
   },
   {
     slug: "gerenciamento-de-clientes",
     title: "Gerenciamento de Clientes",
-    category: "API",
+    stack: "Front-End",
     description: "Projeto pessoal que utiliza uma API REST para o CRUD de clientes, com o objetivo de obter um conhecimento mais sólido em API REST.",
     tags: ["React", "CSS", "Java"],
     developed: ["Cadastro, listagem, edição e exclusão de clientes (CRUD)"],
     images: [],
     repo: {
-      front: "",
-      back: "",
+      
     },
   },
   {
     slug: "dog-api",
     title: "Dog API",
-    category: "API",
-    description: "Projeto pessoal utilizado para obter um conhecimento mais sólido sobre APIrest.",
-    tags: ["Node.js", "React", "TypeScript", "Tailwind CSS"],
-    developed: [],
-    images: [],
+    stack: "Full-Stack",
+    description: "Projeto pessoal que utiliza uma API gratuita de terceiro.   utilizado para obter um conhecimento mais sólido sobre APIrest.",
+    tags: ["React", "TypeScript", "Node.js", "Tailwind CSS"],
+    developed: [
+      "Desenvolvi o front",
+      "implementei a barra de pesquisa por raça com autocomplete",
+      "Criei a rota de pesquisa por raça",
+      "Fiz a funcionalidade de adicionar a imagem nos favoritos",
+      "Criei a página de favoritos que mostra todas as imagens marcadas como favorito"
+    ],
+    images: [
+      {
+        src: `${initialPath}/dog-app/home.png`,
+        alt: "Página inicial do projeto"
+      },
+      {
+        src: `${initialPath}/dog-app/autocomplete.png`,
+        alt: "Página inicial do projeto"
+      },
+      {
+        src: `${initialPath}/dog-app/pesquisa.png`,
+        alt: "Página inicial do projeto"
+      },
+      {
+        src: `${initialPath}/dog-app/favoritado.png`,
+        alt: "Página inicial do projeto"
+      },
+      {
+        src: `${initialPath}/dog-app/favoritos.png`,
+        alt: "Página inicial do projeto"
+      },
+    ],
+    repo: {
+      front: "https://github.com/yuuki-cfeebm/dog-app/tree/main/frontend",
+      back: "https://github.com/yuuki-cfeebm/dog-app/tree/main/backend"
+    }
   }
 ];
 

@@ -10,12 +10,12 @@ import { MagicCard } from "@/components/ui/magic-card";
 import { projects } from "@/data/portfolio";
 
 const ALL = "Todos";
-const filters = [ALL, ...new Set(projects.map((project) => project.category))];
+const filters = [ALL, ...new Set(projects.map((project) => project.stack))];
 
 export default function Projects() {
   const [filter, setFilter] = useState(ALL);
   const visible = projects.filter(
-    (project) => filter === ALL || project.category === filter,
+    (project) => filter === ALL || project.stack === filter,
   );
 
   return (
