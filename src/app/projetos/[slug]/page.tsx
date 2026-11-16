@@ -7,6 +7,8 @@ import ProjectCover from "@/components/ProjectCover";
 import TypedText from "@/components/TypedText";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { profile, projects } from "@/data/portfolio";
+import { Suspense } from "react";
+
 
 export function generateStaticParams() {
   return projects.map(({ slug }) => ({ slug }));
@@ -25,9 +27,17 @@ export async function generateMetadata({
   };
 }
 
-export default async function ProjectPage({
+export default function ProjectPage({ params }: PageProps<"/projetos/[slug]">) {
+  return (
+    <Suspense fallback={null}>
+      <ProjectContent params={params} />
+    </Suspense>
+  );
+}
+
+async function ProjectContent({
   params,
-}: PageProps<"/projetos/[slug]">) {
+}: {params: PageProps<"/projetos/[slug]">["params"];}) {
   const { slug } = await params;
   const index = projects.findIndex((item) => item.slug === slug);
   if (index === -1) notFound();
