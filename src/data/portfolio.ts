@@ -182,18 +182,18 @@ export const projects: Project[] = [
       },
     ],
   },
-  {
-    slug: "gerenciamento-de-clientes",
-    title: "Gerenciamento de Clientes",
-    stack: "Front-End",
-    description: "Projeto pessoal que utiliza uma API REST para o CRUD de clientes, com o objetivo de obter um conhecimento mais sólido em API REST.",
-    tags: ["React", "CSS", "Java"],
-    developed: ["Cadastro, listagem, edição e exclusão de clientes (CRUD)"],
-    images: [],
-    repo: {
+  // {
+  //   slug: "gerenciamento-de-clientes",
+  //   title: "Gerenciamento de Clientes",
+  //   stack: "Front-End",
+  //   description: "Projeto pessoal que utiliza uma API REST para o CRUD de clientes, com o objetivo de obter um conhecimento mais sólido em API REST.",
+  //   tags: ["React", "CSS", "Java"],
+  //   developed: ["Cadastro, listagem, edição e exclusão de clientes (CRUD)"],
+  //   images: [],
+  //   repo: {
       
-    },
-  },
+  //   },
+  // },
   {
     slug: "dog-api",
     title: "Dog API",
